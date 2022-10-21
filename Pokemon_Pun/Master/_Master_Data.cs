@@ -14,11 +14,21 @@ namespace PKMN_CALC.Master
     /// </summary>
     public static class _Master_Data
     {
+
+#if DEBUG
         // 各種マスタデータ(JSONファイルから)を読み込む
         private const string PROJECT_DIR_PATH_TXT = "ProjectDirPath.txt";//実行exeと同じ場所にあるこのtextの1行目に、実行slnのフォルダパスがセットされる(シェル実行で保存される)。
         private static readonly string PROJECT_DIR_PATH = @"../../..";   //以下のマスタjsonファイル全てを置いておくフォルダ。↑のファイルが正しく存在する時はその値に更新される。
         private const string PROJECT_FILE_PATH = "Master/Master_Json";   //実行slnからマスタjsonフォルダパスまでの間
-
+#else
+        //シェルは一旦ストップ
+        //ECHO $(ProjectDir) > ProjectDirPath.txt
+        
+        // 各種マスタデータ(JSONファイルから)を読み込む
+        private const string PROJECT_DIR_PATH_TXT = "ProjectDirPath.txt";//実行exeと同じ場所にあるこのtextの1行目に、実行slnのフォルダパスがセットされる(シェル実行で保存される)。
+        private static readonly string PROJECT_DIR_PATH = @"";   //以下のマスタjsonファイル全てを置いておくフォルダ。↑のファイルが正しく存在する時はその値に更新される。
+        private const string PROJECT_FILE_PATH = "";   //実行slnからマスタjsonフォルダパスまでの間
+#endif
         //private static readonly string MASTER_EACHWAZA_JSON = "Master_EachPokeCanUseWaza.json";
         //private static readonly string MASTER_ITEM_JSON = "Master_Item.json";
         private static readonly string MASTER_POKEMON_JSON = "Master_Pokemon.json";

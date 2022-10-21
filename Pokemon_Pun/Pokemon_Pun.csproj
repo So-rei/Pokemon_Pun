@@ -91,6 +91,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>ECHO $(ProjectDir) &gt; ProjectDirPath.txt</PreBuildEvent>
+    <PreBuildEvent>ECHO $(ProjectDir) &gt; _ProjectDirPath.txt</PreBuildEvent>
   </PropertyGroup>
 </Project>
